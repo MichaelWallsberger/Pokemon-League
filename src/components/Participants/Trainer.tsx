@@ -1,0 +1,54 @@
+import React, { useState } from "react";
+import "./style.css";
+import { Pokemon } from "..//Pokemon/Pokemon";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import {
+  TrainerInterface,
+  TrainerPokemonInterface,
+} from "../../helpers/Interfaces";
+
+interface TrainerProps {
+  trainer: TrainerInterface;
+}
+
+export const Trainer: React.FC<TrainerProps> = ({ trainer }) => {
+  const [loadContent, setLoadContent] = useState(false);
+
+  function headerWasClicked() {
+    if (!loadContent) {
+      setLoadContent(true);
+    }
+  }
+
+  return (
+    <Accordion>
+      <AccordionSummary
+        onClick={headerWasClicked}
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Typography>{trainer.name}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          {loadContent ? (
+            <>
+              {trainer.pokemons.map(
+                (pokemon: TrainerPokemonInterface, idx: number) => {
+                  return <Pokemon key={idx} pokemon={pokemon} />;
+                }
+              )}
+            </>
+          ) : (
+            <div></div>
+          )}
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+  );
+};
