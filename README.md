@@ -1,4 +1,4 @@
 # Pokemon-League
-a small prototype of a pokemon league website
+Website for a pokemon league
 
-website: https://skrelp-pokemon-league.netlify.app/
+website: https://poke-league.netlify.app/
