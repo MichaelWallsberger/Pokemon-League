@@ -18,20 +18,21 @@ export interface PokemonTypeCardDataInterface {
 export interface TrainerPokemonInterface {
   type: string;
   name: string;
+  pokemon: string;
 }
 
 export interface TrainerInterface {
   name: string;
-  imgUrl: string;
+  discordName: string;
   team: number;
   division: string;
   pokemons: TrainerPokemonInterface[];
 }
 
 export interface MatchInterface {
-  name1: string;
-  name2: string;
-  winner: string;
+  trainer1: string | number;
+  trainer2: string | number;
+  winner: string | number;
 }
 
 export interface LeagueInterface {
@@ -51,7 +52,6 @@ export interface Division {
   "border-color": string;
 }
 
-
 export interface TrainerExpandedInterface extends TrainerInterface {
   expanded: boolean;
 }
@@ -63,7 +63,7 @@ export interface LeagueExpandedInterface extends LeagueInterface {
 // Generator-Options
 export interface iBtn {
   name: string;
-  active: boolean
+  active: boolean;
 }
 
 export interface iHeaderBtn {
@@ -90,7 +90,7 @@ export interface iCustomOptions {
   btnName: string;
   active: boolean;
   amount: number;
-  criteria: string
+  criteria: string;
 }
 
 // card
